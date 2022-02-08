@@ -16,6 +16,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/loginn',function(){
-    return view('login');
-});
+
+
+        Route::get('/login',function(){
+            return view('cv.login');
+        });
+        Route::get('/home',function(){
+            return view('cv.home');
+        });
+        Route::get('/profile',function(){
+            return view('cv.profile');
+        });
+        Route::get('/edu',function(){
+            return view('cv.edu');
+        });
+        Route::get('/projects',function(){
+            return view('cv.projects');
+        });
+        Route::get('/contact',function(){
+            return view('cv.contact');
+        });
