@@ -42,4 +42,11 @@ class StudentController extends Controller
         ->with('id',$id)
         ->with('courses',$courses);
     }
+    public function details(Request $req)
+    {
+        return view('student.get')
+        ->with('name',$req->name)
+        ->with('id',$req->id-839)
+        ->with('courses',[]);
+    }
 }

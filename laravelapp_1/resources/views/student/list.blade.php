@@ -9,7 +9,7 @@
     </tr>
     @foreach($students as $s)
         <tr>
-            <td>{{$s->name}}</td>
+            <td><a href="{{route('student.details',['id'=>$s->id+839,'name'=>$s->name])}}">{{$s->name}}</a></td>
             <td>{{$s->id}}</td>
             <td>{{$s->dept}}</td>
         </tr>

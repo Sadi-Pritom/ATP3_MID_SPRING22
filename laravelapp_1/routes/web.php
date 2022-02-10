@@ -41,11 +41,15 @@ Route::get('/', function () {
 
 
 
- Route::get('/login',[PagesController::class,'login']); 
+ Route::get('/loginkor',[PagesController::class,'login'])->name('login'); 
  Route::get('/register',[PagesController::class,'register']);   
  
  
         
-        Route::get('/studentCreate',[StudentController::class,'create']); 
+        Route::get('/studentCreate',[StudentController::class,'create'])->name('student/create');
         Route::get('/studentGet',[StudentController::class,'get']); 
         Route::get('/studentList',[StudentController::class,'list']); 
+
+
+
+Route::get('/student/details/{id}/{name}',[StudentController::class,'details'])->name('student.details');         
