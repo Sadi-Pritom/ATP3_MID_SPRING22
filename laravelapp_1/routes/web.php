@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-        Route::get('/login',function(){
+        ////this for CV
+        Route::get('/loginn',function(){
             return view('cv.login');
         });
         Route::get('/home',function(){
@@ -36,3 +38,14 @@ Route::get('/', function () {
         Route::get('/contact',function(){
             return view('cv.contact');
         });
+
+
+
+ Route::get('/login',[PagesController::class,'login']); 
+ Route::get('/register',[PagesController::class,'register']);   
+ 
+ 
+        
+        Route::get('/studentCreate',[StudentController::class,'create']); 
+        Route::get('/studentGet',[StudentController::class,'get']); 
+        Route::get('/studentList',[StudentController::class,'list']); 
