@@ -3,12 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Student;
 
 class StudentController extends Controller
 {
     //
     public function list()
     {
+        
+        $students=Student::all(); //select * from students and also converts it into collection of student object
+        
+        /*
+
        // $student = array ("id"=>1,"name"=>"Tanvir Ahmed","dob"=>"12.12.12");
        // $student=(object) $student;
         //return var_dump($student);
@@ -24,7 +30,7 @@ class StudentController extends Controller
             $students[]=$student;
 
         }
-
+         */
         return view('student.list')->with('students',$students);
     }
     public function create()

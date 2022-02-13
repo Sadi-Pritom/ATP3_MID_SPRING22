@@ -53,3 +53,10 @@ Route::get('/', function () {
 
 
 Route::get('/student/details/{id}/{name}',[StudentController::class,'details'])->name('student.details');         
+         
+
+                Route::post('/register',[PagesController::class,'registersubmit'])->name('register.submit');  
+
+
+
+Route::get('/students/list',[StudentController::class,'list'])->name('student.list');      //database access          
