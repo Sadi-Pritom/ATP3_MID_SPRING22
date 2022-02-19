@@ -59,4 +59,8 @@ Route::get('/student/details/{id}/{name}',[StudentController::class,'details'])-
 
 
 
-Route::get('/students/list',[StudentController::class,'list'])->name('student.list');      //database access          
+Route::get('/students/list',[PagesController::class,'list'])->name('students.list');      //database access  --eta te kaj nai emni create kora hoyse      
+                   
+                   
+
+                Route::get('/students/edit/{id}',[StudentController::class,'edit'])->name('students.edit');

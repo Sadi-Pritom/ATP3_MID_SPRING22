@@ -1,4 +1,5 @@
 <html>
+
 @extends('layouts.loggedin')
 @section('reg')
 

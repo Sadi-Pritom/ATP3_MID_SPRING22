@@ -23,7 +23,8 @@ class PagesController extends Controller
 
     public function registersubmit(Request $req)
     {
-          /* $req->validate(
+          
+        /* $req->validate(
                [
                    'name'=>'required|regex:/^[A-Z a-z]+$/',
                    'username'=>'required|min:5|max:20',
@@ -40,7 +41,9 @@ class PagesController extends Controller
                ]
 
                );
-          */
+        */
+
+        
           $this->validate($req,
 
           [
@@ -57,18 +60,14 @@ class PagesController extends Controller
             'username.max'=>'Username must not exceed 20 alphabets',
             'conf_password.same'=>'Password and confirm password must match'
         ]
+         );
 
-
-          );
-
-          $st= new Student();
+         $st= new Student();
           $st->name=$req->name;
           $st->username=$req->username;
           $st->email=$req->email;
           $st->password=$req->password;
-          $st->save();
-
-
+          $st->save(); 
         return "<h1>the form is submitted with $req->name</h1>";
     }
     

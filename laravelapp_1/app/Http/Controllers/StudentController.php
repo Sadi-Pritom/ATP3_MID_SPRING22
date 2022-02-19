@@ -55,4 +55,26 @@ class StudentController extends Controller
         ->with('id',$req->id-839)
         ->with('courses',[]);
     }
+
+    public function edit(Request $req)
+    {
+        
+       /* $student = Student :: where('id',decrypt($req->id))
+        ->select('name','id')->first();*/
+        $student = Student :: where('id',decrypt($req->id))
+        ->first();
+        return $student->department->head;
+        //generate edit in blade
+    }
+
+    //if its your editsumit function
+    public function editSubmit(Request $req)
+    {
+        $st= Student::where('id',$req->id)->first();
+        $st->name=$req->name;
+        $st->username=$req->username;
+        $st->email=$req->email;
+       
+        $st->save(); //update
+    }
 }

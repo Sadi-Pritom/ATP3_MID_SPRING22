@@ -5,7 +5,7 @@
     <a href="/edu">Education</a>   
     <a href="/projects">Projects</a>   
     <a href="/contact">Contact</a>   <br>
-    <a href="/login">Logout</a>
+    <a href="/loginn">Logout</a>
 
         
         
