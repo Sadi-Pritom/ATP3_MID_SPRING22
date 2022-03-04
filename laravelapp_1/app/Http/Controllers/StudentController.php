@@ -63,8 +63,16 @@ class StudentController extends Controller
         ->select('name','id')->first();*/
         $student = Student :: where('id',decrypt($req->id))
         ->first();
-        return $student->department->head;
+       // return $student->department->head;
         //generate edit in blade
+
+        //my code start from here
+       /* return view('student.update')
+        
+        ->with('student',$student);
+       */
+      return $student;
+        
     }
 
     //if its your editsumit function
@@ -77,4 +85,42 @@ class StudentController extends Controller
        
         $st->save(); //update
     }
+
+
+   /* ////this function is done by me
+    public function updateSubmit(Request $req)
+    {
+       
+
+        
+          $this->validate($req,
+
+          [
+            name'=>'required|regex:/^[A-Z a-z]+$/',
+            'username'=>'required|min:5|max:20',
+            'email'=>'required|email',//|exists:students, email'
+           // 'password'=>'required|min:8',
+            //'conf_password'=>'required|same:password'
+            
+
+        ],
+
+        [
+            'username.required' => 'Please provide username',
+            'username.max'=>'Username must not exceed 20 alphabets',
+           // 'conf_password.same'=>'Password and confirm password must match'
+        ]
+         );
+
+         $st= Student::where('id',$req->id)->first();
+          //$st->name=$req->name;
+         // $st->username=$req->username;
+         // $st->email=$req->email;
+         DB::update('update student_info set name = ? where id = ?',[$name,$id]);
+          
+          $st->save(); 
+          return redirect()->route('student.list');
+        return "<h1>the form is Updated with $req->name</h1>";
+    }
+    */
 }

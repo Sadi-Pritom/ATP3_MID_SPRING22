@@ -48,10 +48,11 @@ class PagesController extends Controller
 
           [
             'name'=>'required|regex:/^[A-Z a-z]+$/',
-            'username'=>'required|min:5|max:20|unique:students,username',
+            'username'=>'required|min:5|max:20',
             'email'=>'required|email',//|exists:students, email'
             'password'=>'required|min:8',
             'conf_password'=>'required|same:password'
+            
 
         ],
 

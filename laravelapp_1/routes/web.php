@@ -64,3 +64,6 @@ Route::get('/students/list',[PagesController::class,'list'])->name('students.lis
                    
 
                 Route::get('/students/edit/{id}',[StudentController::class,'edit'])->name('students.edit');
+        
+                
+    Route::post('/update',[StudentController::class,'updateSubmit'])->name('update.submit');           
