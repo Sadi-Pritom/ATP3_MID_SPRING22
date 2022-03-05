@@ -22,4 +22,7 @@ class Student extends Model
         return $this->belongsTo(Department::class,'dept_id'); 
         //return $this->belongsTo(Department::class,'dept_id','username');//mane department table er id er sathe connect na hoye username er sathe connect hobe
     }
+    public function courseStudent(){
+        return $this->hasMany(CourseStudent::class, 'st_id');
+    }
 }

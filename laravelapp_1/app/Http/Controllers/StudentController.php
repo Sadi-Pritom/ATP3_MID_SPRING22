@@ -50,10 +50,19 @@ class StudentController extends Controller
     }
     public function details(Request $req)
     {
-        return view('student.get')
+       /* return view('student.get')
         ->with('name',$req->name)
         ->with('id',$req->id-839)
         ->with('courses',[]);
+        */
+        $student= Student::where ('id',decrypt($req->id))
+        ->first();
+        //return $student->department->courses;//kaj kore na
+      // return $student->department->students;
+     // return $student->courseStudent;
+     //return $student->courseStudent[0]->course;//id dekhanor kotha name dekhay
+     return $student->courseStudent[0]->course->name;
+
     }
 
     public function edit(Request $req)
