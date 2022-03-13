@@ -39,16 +39,17 @@ Route::get('/', function () {
             return view('cv.contact');
         });
 
+/////////////////////////////////////////////////////////////////////////////////
 
-
- Route::get('/loginkor',[PagesController::class,'login'])->name('login'); 
+ Route::get('/login',[PagesController::class,'login'])->name('login'); 
+ Route::post('/login',[PagesController::class,'loginSubmit'])->name('login');
  Route::get('/register',[PagesController::class,'register']);   
  
  
         
         Route::get('/studentCreate',[StudentController::class,'create'])->name('student/create');
         Route::get('/studentGet',[StudentController::class,'get']); 
-        Route::get('/studentList',[StudentController::class,'list']); 
+        Route::get('/studentList',[StudentController::class,'list'])->name('student.list')->middleware('authorized'); 
 
 
 
@@ -66,4 +67,7 @@ Route::get('/students/list',[PagesController::class,'list'])->name('students.lis
                 Route::get('/students/edit/{id}',[StudentController::class,'edit'])->name('students.edit');
         
                 
-    Route::post('/update',[StudentController::class,'updateSubmit'])->name('update.submit');           
+    Route::post('/update',[StudentController::class,'updateSubmit'])->name('update.submit');      
+    
+    Route::get('/logout',[PagesController::class,'logout'])->name('logout');
+    

@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\CourseStudent;
+use App\Models\Course;
+use App\Models\Department;
+
 
 class StudentController extends Controller
 {
     //
     public function list()
     {
+        
         
         $students=Student::all(); //select * from students and also converts it into collection of student object
         
@@ -57,11 +62,18 @@ class StudentController extends Controller
         */
         $student= Student::where ('id',decrypt($req->id))
         ->first();
-        //return $student->department->courses;//kaj kore na
-      // return $student->department->students;
+       /*
+        //return $student->department->courses;//kaj kore na//thik ase ekhon
+     //  return $student->department->students;
      // return $student->courseStudent;
-     //return $student->courseStudent[0]->course;//id dekhanor kotha name dekhay
-     return $student->courseStudent[0]->course->name;
+     //return $student->courseStudent[0]->course;//id dekhanor kotha name dekhay//thik ase ekhon
+     //return $student->courseStudent[0]->course->name;
+     //return $student->courseStudent[0]->course->department;//eta kaj kore na //thik ase ekhon
+
+    */
+
+
+    return view('student.get')->with('s',$student);
 
     }
 

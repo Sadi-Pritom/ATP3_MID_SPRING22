@@ -4,14 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Models\Department;
-use Illuminate\Models\CourseStudent;
+use App\Models\Department;
+use App\Models\CourseStudent;
 
 class Course extends Model
 {
     use HasFactory;
     public function department(){
-        return $this->belongsTo(Departmet::class, 'offered_by');
+        
+        return $this->belongsTo(Department::class, 'offered_by');
     }
 
     public function courseStudent()
